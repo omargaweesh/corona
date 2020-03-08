@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+
+<title>CoronaData</title>
+</head>
+<body>
+		<br>
+		<br><div class="container">
+				
+				<div class="card">
+			  <div style="font-size:30px ; font-weight:bolder ; text-align:center" class="card-header">
+			    The Corona Confirmed Cases
+			  </div>
+			  <div class="card-body">
+			    <h5 style="font-size:25px ; "  class="card-title">- The Corona Confirmed Cases</h5><br>
+			    <p style="font-size:24px" class="text-monospace card-text">- Total Cases Until Today : <span style="font-size:30px ; font-weight:bolder"  th:text="${totalCases}"></span></p>
+			  	<br><p style="font-size:24px" class="text-monospace card-text">- Diffrence Total Cases Last Two day : <span style="font-size:30px ; font-weight:bolder"  th:text="${Delta}"></span></p>
+			  <br></div>
+			</div>
+		
+		<br>
+	    <table class="table">
+		     <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">Province/State</th>
+				      <th scope="col">Country/Region</th>
+				      <th scope="col">ToTal_Confirmed_Cases</th>
+				      <th scope="col">Delta_Cases</th>
+				    </tr>
+				  </thead>
+				  <tbody> 
+				    <tr th:each="case : ${coronaData} ">
+				      <th scope="row">#</th>
+				      <td th:text="${case.city}"></td>
+				      <td th:text="${case.country}"></td>
+				      <td th:text="${case.totalConfirmCases}"></td>
+				      <td th:text="${case.Delta}"></td>
+				    </tr>
+		 	
+		     </tbody>
+		</table>
+	</div>
+
+</body>
+</html>
